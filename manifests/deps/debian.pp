@@ -11,9 +11,7 @@ class rbenv::deps::debian {
     package { 'libreadline6-dev': ensure => installed }
   }
 
-  if ! defined(Package['libssl-dev']) {
-    package { 'libssl-dev': ensure => installed }
-  }
+  include Openssl
 
   if ! defined(Package['zlib1g-dev']) {
     package { 'zlib1g-dev': ensure => installed }
